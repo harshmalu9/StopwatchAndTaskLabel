@@ -1,6 +1,5 @@
 // // shift to css
 let buttons = document.querySelectorAll('.basic_buttons');
-
 buttons.forEach((button) => {
   button.addEventListener('mouseover', () => {
     button.style.background = 'red';
@@ -102,4 +101,13 @@ window.addEventListener('keydown', function (event) {
   }
 });
 
-let quotesUrl = 'https://zenquotes.io/api/random';
+
+
+function fetchQuotes(){
+  let ind = Math.floor(Math.random() * size)
+  let quote= quotes[ind]
+  document.querySelector("div span").textContent = quotes[ind];
+}
+
+fetchQuotes();
+
