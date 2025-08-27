@@ -66,6 +66,7 @@ async function startTimer() {
 
 // Stop function: gets invoked whenever stopped button is pressed
 function stopTimer() {
+  if(!isRunning) return
   clearInterval(timer);
   isRunning = false;
   animateContainer();
