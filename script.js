@@ -1,16 +1,15 @@
 // // shift to css
-let buttons = document.querySelectorAll(".basic_buttons")
+let buttons = document.querySelectorAll('.basic_buttons');
 
-buttons.forEach(button => {
-    button.addEventListener("mouseover", () => {
-        button.style.background = "red"
-    })
+buttons.forEach((button) => {
+  button.addEventListener('mouseover', () => {
+    button.style.background = 'red';
+  });
 
-    button.addEventListener("mouseout", () => {
-        button.style.background = "tomato"
-    })
-})
-
+  button.addEventListener('mouseout', () => {
+    button.style.background = 'tomato';
+  });
+});
 
 let hours = 0;
 let minutes = 0;
@@ -19,66 +18,87 @@ let timer = null;
 let isRunning = false;
 
 // Get DOM elements
-const hrsElement = document.querySelector("#hrs span");
-const minsElement = document.querySelector("#mins span");
-const secsElement = document.querySelector("#secs span");
+const hrsElement = document.querySelector('#hrs span');
+const minsElement = document.querySelector('#mins span');
+const secsElement = document.querySelector('#secs span');
 
 // Get buttons
-const startBtn = document.getElementById("start_button");
-const stopBtn = document.getElementById("stop_button");
-const resetBtn = document.getElementById("reset_button");
+const startBtn = document.getElementById('start_button');
+const stopBtn = document.getElementById('stop_button');
+const resetBtn = document.getElementById('reset_button');
 
 // Function to update stopwatch display
 function updateDisplay() {
-    hrsElement.textContent = hours.toString().padStart(2, "0");
-    minsElement.textContent = minutes.toString().padStart(2, "0");
-    secsElement.textContent = seconds.toString().padStart(2, "0");
+  hrsElement.textContent = hours.toString().padStart(2, '0');
+  minsElement.textContent = minutes.toString().padStart(2, '0');
+  secsElement.textContent = seconds.toString().padStart(2, '0');
 }
 
 // Stopwatch tick: gets invoked after every second, by setInterval in the startTimer method
 function tick() {
-    seconds++;
-    if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-    }
-    if (minutes === 60) {
-        minutes = 0;
-        hours++;
-    }
-    updateDisplay();
+  seconds++;
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+  }
+  if (minutes === 60) {
+    minutes = 0;
+    hours++;
+  }
+  updateDisplay();
+}
+
+function animateContainer() {
+  const container = document.querySelector('.container-stopwatch');
+  container.style.transform = 'scale(1.05)';
+  setTimeout(() => {
+    container.style.transform = 'scale(1)';
+  }, 100);
 }
 
 // Start function: gets invoked whenever start button is pressed
-function startTimer() {
-    if (!isRunning) {
-        timer = setInterval(tick, 1000);
-        isRunning = true;
-    }
+async function startTimer() {
+  if (isRunning) return;
+  timer = setInterval(tick, 1000);
+  isRunning = true;
+  animateContainer();
 }
 
 // Stop function: gets invoked whenever stopped button is pressed
 function stopTimer() {
-    clearInterval(timer);
-    isRunning = false;
+  clearInterval(timer);
+  isRunning = false;
+  animateContainer();
 }
 
 // Reset function: gets invoked whenever reset button is pressed
 function resetTimer() {
-    stopTimer();
-    hours = 0;
-    minutes = 0;
-    seconds = 0;
-    updateDisplay();
+  stopTimer();
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
+  updateDisplay();
 }
 
 // Event listeners
-startBtn.addEventListener("click", startTimer);
-stopBtn.addEventListener("click", stopTimer);
-resetBtn.addEventListener("click", resetTimer);
+startBtn.addEventListener('click', startTimer);
+stopBtn.addEventListener('click', stopTimer);
+resetBtn.addEventListener('click', resetTimer);
 
 // Initialize display
 updateDisplay();
 
+// adding the space bar effect
+window.addEventListener('keydown', function (event) {
+  if (event.key == ' ') {
+    if (isRunning) {
+      this.document.body.style.backgroundColor = 'blue';
+      stopTimer();
+      this.document.body.style.backgroundColor = 'papayawhip';
+    } else {
+      startTimer();
+    }
+  }
+});
 
-
+let quotesUrl = 'https://zenquotes.io/api/random';
