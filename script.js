@@ -73,6 +73,7 @@ function stopTimer() {
 
 // Reset function: gets invoked whenever reset button is pressed
 function resetTimer() {
+  animateContainer();
   stopTimer();
   hours = 0;
   minutes = 0;
@@ -110,4 +111,10 @@ function fetchQuotes(){
 }
 
 fetchQuotes();
+
+
+const changeTheme = document.getElementById("toggleBtn")
+changeTheme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme")
+})
 

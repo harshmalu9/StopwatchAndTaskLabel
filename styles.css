@@ -88,3 +88,39 @@ header{
     font-size: 30px;
     /* font-weight: 100; */
 }
+
+.theme-change {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #cfabab;
+}
+
+
+
+
+
+/* Dark theme */
+.dark-theme {
+    background-color: #1e1e1e; /* body background */
+    color: #f5f5f5;            /* text color */
+}
+
+.dark-theme .container {
+    background-color: #2c2c2c;
+    border: 1px solid #555;
+}
+
+.dark-theme .basic_buttons {
+    background-color: #ff6347;
+    color: white;
+}
+
+.dark-theme .theme-change{
+    border: 1px solid white;
+    background-color: rgb(12, 2, 0);
+    color: white;
+}
