@@ -106,7 +106,7 @@ header{
 /* Dark theme */
 .dark-theme {
     background-color: #1e1e1e; /* body background */
-    color: #f5f5f5;            /* text color */
+    color: antiquewhite;            /* text color */
 }
 
 .dark-theme .container {
@@ -116,11 +116,11 @@ header{
 
 .dark-theme .basic_buttons {
     background-color: #ff6347;
-    color: white;
+    color: antiquewhite;
 }
 
 .dark-theme .theme-change{
     border: 1px solid white;
     background-color: rgb(12, 2, 0);
-    color: white;
+    color: antiquewhite;
 }
