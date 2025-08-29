@@ -93,9 +93,7 @@ updateDisplay();
 window.addEventListener('keydown', function (event) {
   if (event.key == ' ') {
     if (isRunning) {
-      this.document.body.style.backgroundColor = 'blue';
       stopTimer();
-      this.document.body.style.backgroundColor = 'papayawhip';
     } else {
       startTimer();
     }
