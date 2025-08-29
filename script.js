@@ -112,7 +112,21 @@ fetchQuotes();
 
 
 const changeTheme = document.getElementById("toggleBtn")
-changeTheme.addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme")
-})
 
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+// Toggle theme on button click
+changeTheme.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    // Save current theme to localStorage, so that the previous theme is persisted on reload
+    if (document.body.classList.contains("dark-theme")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+    // this is if else block stores a values("dark"/"light") for the field "theme"
+    // whenever the page is reloaded if the value is dark, then dark theme is applied
+});
