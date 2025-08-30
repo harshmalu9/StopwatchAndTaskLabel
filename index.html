@@ -15,33 +15,47 @@
 
     <main class="main">
 
-        <div class="container container-stopwatch">
-            <div class="stopwatch_main">
-                
-                <div class="stopwatch_subclass1" id="hrs">
-                    <span>00</span>
-                </div>
-                
-                <span class="colon">:</span>
-                <div class="stopwatch_subclass2" id="mins">
-                    <span>00</span>
-                </div>
+        <div class="overall-container">
+            <div class="container container-stopwatch">
+                <div class="stopwatch_main">
+                    
+                    <div class="stopwatch_subclass1" id="hrs">
+                        <span>00</span>
+                    </div>
+                    
+                    <span class="colon">:</span>
+                    <div class="stopwatch_subclass2" id="mins">
+                        <span>00</span>
+                    </div>
 
-                <span class="colon">:</span>
-                <div class="stopwatch_subclass3" id="secs">
-                    <span>00</span>
+                    <span class="colon">:</span>
+                    <div class="stopwatch_subclass3" id="secs">
+                        <span>00</span>
 
+                    </div>
+                </div>
+                <div class="buttons" id="btn_div">
+                    <button class="basic_buttons" id="start_button">Start</button>
+                    <button class="basic_buttons" id="stop_button">Stop</button>
+                    <button class="basic_buttons" id="reset_button">Reset</button>
                 </div>
             </div>
-            <div class="buttons" id="btn_div">
-                <button class="basic_buttons" id="start_button">Start</button>
-                <button class="basic_buttons" id="stop_button">Stop</button>
-                <button class="basic_buttons" id="reset_button">Reset</button>
-            </div>
+            <input class="label-input-field" id="label-input" type="text" name="Add label" placeholder="Add Label">
         </div>
+
+
         <div>
             <button class="theme-change" id="toggleBtn">Toggle theme</button>
         </div>
+
+        <!-- <div class="add-label">
+            <input class="label-input-field" type="text" name="Add label" placeholder="Add Label">
+        </div> -->
+
+        <!-- <div class="all-labels" id="all-labels-menu">
+            Labels
+        </div> -->
+
     </body>
     </main>
     <script src="constant.js"></script>

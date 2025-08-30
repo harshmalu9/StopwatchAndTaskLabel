@@ -10,11 +10,13 @@ buttons.forEach((button) => {
   });
 });
 
+
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
 let timer = null;
 let isRunning = false;
+
 
 // Get DOM elements
 const hrsElement = document.querySelector('#hrs span');
@@ -60,7 +62,9 @@ async function startTimer() {
   if (isRunning) return;
   timer = setInterval(tick, 1000);
   isRunning = true;
+  // labelInput.disabled = true;
   animateContainer();
+  lableRunManageer();
 }
 
 // Stop function: gets invoked whenever stopped button is pressed
@@ -68,7 +72,9 @@ function stopTimer() {
   if(!isRunning) return
   clearInterval(timer);
   isRunning = false;
+  // labelInput.disabled = false;
   animateContainer();
+  lableRunManageer();
 }
 
 // Reset function: gets invoked whenever reset button is pressed
@@ -130,3 +136,22 @@ changeTheme.addEventListener("click", () => {
     // this is if else block stores a values("dark"/"light") for the field "theme"
     // whenever the page is reloaded if the value is dark, then dark theme is applied
 });
+
+
+const labelInput = document.getElementById("label-input");
+
+const taskList = [];
+let taskAndTime = new Map();
+
+function lableRunManageer(){
+  if(isRunning) {
+    labelInput.disabled = true;
+    labelInput.placeholder = "Stop the clock first"
+  }
+  else {
+    labelInput.disabled = false;
+    labelInput.placeholder = "Add task label"
+  }
+}
+
+
