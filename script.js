@@ -10,6 +10,7 @@ buttons.forEach((button) => {
   });
 });
 
+const labelInput = document.getElementById("label-input"); 
 
 let hours = 0;
 let minutes = 0;
@@ -17,6 +18,7 @@ let seconds = 0;
 let timer = null;
 let isRunning = false;
 
+lableRunManageer();
 
 // Get DOM elements
 const hrsElement = document.querySelector('#hrs span');
@@ -138,8 +140,6 @@ changeTheme.addEventListener("click", () => {
 });
 
 
-const labelInput = document.getElementById("label-input");
-
 const taskList = [];
 let taskAndTime = new Map();
 
@@ -148,7 +148,10 @@ function lableRunManageer(){
     labelInput.disabled = true;
     labelInput.placeholder = "Stop the clock first"
   }
-  else {
+  else if(hours === 0 && minutes === 0 && seconds === 0){
+    labelInput.disabled = true;
+    labelInput.placeholder = "Run the watch once to add label"
+  }else{
     labelInput.disabled = false;
     labelInput.placeholder = "Add task label"
   }

@@ -100,9 +100,11 @@ input{
     border-radius: 7px;
     border: 0.5px solid #cfabab;
     padding: 10px 5px;
-    width: 130px;
+    width: 230px;
     margin: 0 auto;
     display: block;
+    text-align: center;
+    
 }
 
 input::placeholder{
@@ -121,9 +123,21 @@ input::placeholder{
     color: antiquewhite;            /* text color */
 }
 
-.dark-theme .container {
+.dark-theme .container{
     background-color: #2c2c2c;
     border: 1px solid #555;
+}
+
+.dark-theme .label-input-field{
+    background-color: #2c2c2c;
+    border: 1px solid #555;
+    color: antiquewhite;
+    text-align: center;
+}
+
+.dark-theme .label-input-field::placeholder{
+    color: antiquewhite;
+
 }
 
 .dark-theme .basic_buttons {
